@@ -13,10 +13,10 @@ const store = configureStore();
 
 store.dispatch(addExpense({ description: 'Water Bill', amount: 500, createdAt: 1000 }));
 store.dispatch(addExpense({ description: 'Gas Bill', amount: 800, createdAt: 1500 }));
-store.dispatch(setTextFilter('bill'));
+store.dispatch(setTextFilter('water'));
 
 setTimeout(() => {
-  store.dispatch(setTextFilter('water'));
+  store.dispatch(setTextFilter('bill'));
 }, 3000);
 
 const state = store.getState();
