@@ -8,17 +8,11 @@ export default class ExpenseForm extends Component {
   constructor(props) {
     super(props);
     
-    this.onDescriptionChange = this.onDescriptionChange.bind(this);
-    this.onAmountChange = this.onAmountChange.bind(this);
-    this.onNoteChange = this.onNoteChange.bind(this);
-    this.onDescriptionChange = this.onDescriptionChange.bind(this);
-    this.onFocusChange = this.onFocusChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
-      description: '',
-      note: '',
-      amount: '',
-      createdAt: moment(),
+      description: props.expense ? props.expense.description : '',
+      note: props.expense ? props.expense.note : '',
+      amount: props.expense ? (props.expense.amount / 100).toString() : '',
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       calendarFocused: false,
       error: ''
     };
