@@ -12,4 +12,4 @@ const ExpenseListItem = (props) => {
   )
 }
 
-export default (ExpenseListItem);
+export default ExpenseListItem;
