@@ -9,7 +9,7 @@ export class AddExpensePage extends Component {
   }
 
   onSubmit = (expense) => {
-    this.props.onSubmit(expense);
+    this.props.addExpense(expense);
     this.props.history.push('/');
   }
 
@@ -26,7 +26,7 @@ export class AddExpensePage extends Component {
 const mapDispatchToProps = (dispatch) => {
   // return bindActionCreators({ addExpense }, dispatch);
   return {
-    onSubmit: (expense) => dispatch(addExpense(expense))
+    addExpense: (expense) => dispatch(addExpense(expense))
   }
 }
 

@@ -4,13 +4,13 @@ import { bindActionCreators } from 'redux';
 import ExpenseForm from './ExpenseForm';
 import { editExpense, removeExpense } from '../actions/expenses';
 
-class EditExpensePage extends Component {
+export class EditExpensePage extends Component {
   constructor(props) {
     super(props);
   }
 
   onSubmit = (expense) => {
-    this.props.editExpense(this.props.match.params.id, expense);
+    this.props.editExpense(this.props.expense.id, expense);
     this.props.history.push('/');
   }
 
@@ -23,7 +23,7 @@ class EditExpensePage extends Component {
     return (
       <div>
         <ExpenseForm expense={this.props.expense} onSubmit={this.onSubmit} />
-        <button onClick={e => this.onRemove(this.props.match.params.id)}>Remove</button>
+        <button onClick={e => this.onRemove(this.props.expense.id)}>Remove</button>
       </div>
     )
   };
@@ -35,8 +35,12 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ editExpense, removeExpense }, dispatch);
+const mapDispatchToProps = (dispatch, props) => {
+  // return bindActionCreators({ editExpense, removeExpense }, dispatch);
+  return {
+    editExpense: (id, expense) => dispatch(editExpense(id, expense)),
+    removeExpense: (data) => dispatch(removeExpense(data))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);
