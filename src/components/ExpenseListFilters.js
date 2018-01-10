@@ -5,7 +5,7 @@ import { setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate } fro
 import { bindActionCreators } from 'redux';
 // import 'react-dates/lib/css/_datepicker.css';
 
-class ExpenseListFilters extends Component {
+export class ExpenseListFilters extends Component {
   constructor(props) {
     super(props);
     
@@ -69,7 +69,14 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate }, dispatch);
+  // return bindActionCreators({ setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate }, dispatch);
+  return {
+    setTextFilter: (text) => dispatch(setTextFilter(text)),
+    sortByAmount: () => dispatch(sortByAmount()),
+    sortByDate: () => dispatch(sortByDate()),
+    setStartDate: (startDate) => dispatch(setStartDate(startDate)),
+    setEndDate: (endDate) => dispatch(setEndDate(endDate)),
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters);
