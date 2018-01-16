@@ -1,3 +1,4 @@
+import 'react-dates/initialize';
 import React, { Component } from 'react';
 import ExpenseList from './ExpenseList';
 import ExpenseListFilters from './ExpenseListFilters';
