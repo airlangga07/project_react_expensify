@@ -12,6 +12,7 @@ const config = {
 
 firebase.initializeApp(config);
 const database = firebase.database();
+
 database.ref().set({
   name: 'Mikael Airlangga',
   age: 28, 
@@ -20,13 +21,21 @@ database.ref().set({
     city: 'Singapore', 
     origin: 'Indonesia'
   },
+}).then(() => {
+  console.log('Data is saved!');
+}).catch(error => {
+  console.log('Error: ' + error);
 });
 
-database.ref('age').set(27);
+// database.ref('age').set(27);
 
-database.ref('location/city').set('Balestier');
+// database.ref('location/city').set('Balestier');
 
 database.ref('attributes').set({
   height: 175,
   weight: 61
+}).then(() => {
+  console.log9('Data is saved!');
+}).catch(error => {
+  console.log('Error: ' + error);
 });
