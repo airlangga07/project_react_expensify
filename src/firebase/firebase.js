@@ -1,5 +1,6 @@
 import * as firebase from 'firebase';
 
+
 const config = {
   apiKey: "AIzaSyCufNjoncpKfUOMPzZBTvDIkrQyicWUFn8",
   authDomain: "project-expensify.firebaseapp.com",
@@ -9,9 +10,23 @@ const config = {
   messagingSenderId: "382688022405"
 };
 
-console.log('firebase called successfully!');
 firebase.initializeApp(config);
+const database = firebase.database();
+database.ref().set({
+  name: 'Mikael Airlangga',
+  age: 28, 
+  isSingle: false,
+  location: {
+    city: 'Singapore', 
+    origin: 'Indonesia'
+  },
+});
 
-firebase.database().ref().set({
-  name: 'Mikael Airlangga'
+database.ref('age').set(27);
+
+database.ref('location/city').set('Balestier');
+
+database.ref('attributes').set({
+  height: 175,
+  weight: 61
 });
