@@ -16,7 +16,11 @@ const database = firebase.database();
 database.ref().set({
   name: 'Mikael Airlangga',
   age: 28, 
-  isSingle: false,
+  stressLevel: 6,
+  job: {
+    title: 'Software Developer',
+    company: 'Google'
+  },
   location: {
     city: 'Singapore', 
     origin: 'Indonesia'
@@ -25,6 +29,12 @@ database.ref().set({
   console.log('Data is saved!');
 }).catch(error => {
   console.log('Error: ' + error);
+});
+
+database.ref().update({
+  stressLevel: 9,
+  'job/company': 'Amazon',
+  'location/city': 'Seattle'
 });
 
 // update the data
@@ -40,11 +50,28 @@ database.ref().set({
 // });
 
 // remove property from database
-database.ref('isSingle').remove().then(() => {
-  console.log('Data was removed');
-}).catch(err => {
-  console.log('Error: ' + err);
-});
+// database.ref('isSingle').remove().then(() => {
+//   console.log('Data was removed');
+// }).catch(err => {
+//   console.log('Error: ' + err);
+// });
 
 // by passing up the null value is equivalent by calling the remove
 // database.ref('isSingle').set(null);
+
+// updating data
+// database.ref().update({
+  // update name and age property
+  // name: 'Mike',
+  // age: 29,
+  // deleting property
+  // isSingle: null,
+  // setting value
+  // job: 'Software developer'
+// });
+
+// update the nested document
+// database.ref().update({
+  // job: 'Manager',
+  // 'location/city': 'Jakarta'
+// });
