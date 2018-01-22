@@ -13,10 +13,35 @@ const config = {
 firebase.initializeApp(config);
 const database = firebase.database();
 
-database.ref().on('value', snapshot => {
-  const val = snapshot.val();
-  console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`);
+database.ref('expenses').push({
+  description: 'Phone Bills',
+  note: '',
+  amount: 5900,
+  createdAt: 1 
 });
+// database.ref('notes').push({
+//   title: 'new note', 
+//   body: 'hello'
+// });
+
+// database.ref('notes/-L3T7Si0kKjDclQE786_').update({
+//   body: 'buy food'
+// })
+// const notes = [{
+//   id: '12',
+//   title: 'first note',
+//   body: 'This is my note'
+// }, {
+//   id: '12daf',
+//   title: 'another note',
+//   body: 'This is my note'
+// }];
+
+// database.ref('notes').set(notes);
+// database.ref().on('value', snapshot => {
+//   const val = snapshot.val();
+//   console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`);
+// });
 
 // retrieving data
 // database.ref().once('value')
