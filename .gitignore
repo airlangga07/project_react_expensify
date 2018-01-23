@@ -1,5 +1,7 @@
 node_modules/
 public/
+.env.test
+.env.development
 npm-debug.log
 .DS_Store
 
