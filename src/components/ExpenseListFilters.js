@@ -40,12 +40,12 @@ export class ExpenseListFilters extends Component {
       <div className="content-container">
         <div className="input-group">
           <div className="input-group__item">
-            <input type="text" value={this.props.filters.text} onChange={e => {
+            <input type="text" className="text-input" placeholder="Search expenses" value={this.props.filters.text} onChange={e => {
                 this.props.setTextFilter(e.target.value);
               }} />
           </div>
           <div className="input-group__item">
-            <select value={this.props.filters.sortBy} onChange={e => this.changeFilter(e.target.value)}>
+            <select className="select" value={this.props.filters.sortBy} onChange={e => this.changeFilter(e.target.value)}>
               <option value="date">Date</option>
               <option value="amount">Amount</option>
             </select>
