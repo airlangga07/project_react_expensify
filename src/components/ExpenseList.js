@@ -9,8 +9,12 @@ export const ExpenseList = (props) => {
   });
 
   return (
-    <div>
-      <h1>Expense List</h1>
+    <div className="content-container">
+      <div className="list-header">
+        <div className="show-for-mobile">Expenses</div>
+        <div className="show-for-desktop">Expense</div>
+        <div className="show-for-desktop">Amount</div>
+      </div>
       { props.expenses.length === 0 ? <p>No Expenses</p> : ExpenseItem}
     </div>
   )
